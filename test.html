@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İZKAL - GERİ DÖNÜŞÜM</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #harita {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="harita"></div>
+    <script>
+        var harita = L.map('harita').setView([40.0710, 29.5135], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(harita);
+
+        var okullar = [
+            { lat: 40.063528280472234, lng: 29.51509956715078, isim: 'Zeki Konukoğlu Anadolu Lisesi' },
+            { lat: 40.071904319855584, lng: 29.508306787671852, isim: 'Dörtçelik Mesleki ve Teknik Anadolu Lisesi' },
+            { lat: 40.07133389315027, lng: 29.506808746341903, isim: 'Halil İnalcık Sosyal Bilimler Lisesi' },
+			{ lat: 40.07085910887648, lng: 29.506134212075278, isim: 'Nuh Mehmet Küçükçalık Lisesi' },
+			{ lat: 40.07069209479744, lng: 29.50535574202547, isim: 'Spor Lisesi' },
+			{ lat: 40.06922912273674, lng: 29.504864958549387, isim: 'Salih İbrahim Kırcalı Mesleki ve Teknik Anadolu Lisesi' },
+			{ lat: 40.073148403279504, lng: 29.506324789187193, isim: 'Anadolu İmam Hatip Lisesi' },
+			{ lat: 40.07181846381066, lng: 29.49830748150698, isim: 'NENE HATUN MESLEKİ VE TEKNİK ANADOLU LİSESİ' },
+			{ lat: 40.081275846271716, lng: 29.492112090619457, isim: 'Fen Lisesi' },			
+			{ lat: 40.08424182429016, lng: 29.49935361026338, isim: 'Yunus Emre Mesleki Ve Teknik Anadolu Lisesi' },			
+			{ lat: 40.08929976798162, lng: 29.51699701353208, isim: 'Naire Çikayeva Anadolu Lisesi' },			
+			{ lat: 40.06997860771127, lng: 29.506106189265427, isim: 'Turgutalp Anadolu Lisesi' },			
+			{ lat: 40.09661290396897, lng: 29.422211337351726, isim: 'Yenice 19 Mayıs Anadolu Lisesi' },	
+		    { lat: 40.10875850533986, lng: 29.5149808991988, isim: 'Bursa Borsa İstanbul Anadolu Lisesi' },		
+			{ lat: 40.06995142369526, lng: 29.503406913855006, isim: 'ŞEHİT FEVZİ BAŞARAN ANADOLU İMAM HATİP LİSESİ' },		
+			{ lat: 40.133845891828074, lng: 29.48511706384683, isim: 'Kampüs 1-2-3-4' },				
+		];
+
+        for (var i = 0; i < okullar.length; i++) {
+            L.marker([okullar[i].lat, okullar[i].lng]).addTo(harita)
+                .bindPopup(okullar[i].isim);
+        }
+    </script>
+</body>
+</html>
